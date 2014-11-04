@@ -48,12 +48,12 @@
 
 ##### Seed Data into the system:
 
--1 Company with 5 successful charges
--1 Company with 3 successful charges and 1 disputed charge and 1 failed charge
+  - 1 Company with 5 successful charges
+  - 1 Company with 3 successful charges and 1 disputed charge and 1 failed charge
 
--5 Users with 1 successful charge each
--1 User with 2 disputed charges and 1 failed charge
--1 User with 3 failed charges
+  - 5 Users with 1 successful charge each
+  - 1 User with 2 disputed charges and 1 failed charge
+  - 1 User with 3 failed charges
 
 
 ##### Create a Visual Representation of Different Charges:
