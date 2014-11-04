@@ -14,84 +14,79 @@
 
 - Fork this repository (if you don't know how to do that, Google is your friend).
 - Create a *source* directory.
-- In the *source* directory, scaffold a simple Rails 4 web app that models a credit card charge. JSON data structure below: 
+- In the *source* directory, scaffold a simple Rails 4 web app that models a credit card charge. Attributes below: 
 
 ```
-  {
-    "id": 9923,
-    "created": 1389618241,
-    "paid": true,
-    "amount": 4900,
-    "currency": "usd",
-    "refunded": false,
-    "customer_id" : 123
-  }
+:id (rails generated id)
+:created_at (date and time)
+:amount (quantity of money)
+:unique_code (code to identify charge)
+:paid (true/false)
+:refunded  (true/false)
 ```
 
-    *Note: Amount is in USD, cents*
+    *Note: a successful charge is a paid charge that is not refunded
+    *Note: a disputed charge is a paid charge that is refunded
+    *Note: a failed charge is a charge that is not paid
+    *Note: the unique code is generated when created that cannot be guessed and could be considered secure from guessing
 
-- Also scaffold a customer object which only has a first and last name. 
+- Also a charge has a customer that can be either a User or a Company (this may require adding attributes not listed to some of the models)
+- A user has attributes:
+```
+:id (rails generated id)
+:first_name
+:last_name
+```
+- A company has attributes:
+```
+:id (rails generated id)
+:name
+:zip_code
+```
 
-*The charge object has a customer property, this property is the customer id from the customer model.*
 
-##### Seed 4 Customers into the system:
 
-    Customer 1: 
-      First Name: Johny 
-      Last Name: Flow
+##### Seed Data into the system:
 
-    Customer 2: 
-      First Name: Raj
-      Last Name: Jamnis
+1 Company with 5 successful charges
+1 Company with 3 successful charges and 1 disputed charge and 1 failed charge
 
-    Customer 3: 
-      First Name: Andrew
-      Last Name: Chung
-
-    Customer 4: 
-      First Name: Mike
-      Last Name: Smith
-
-  
-##### Seed 20 transactions (charges) into the system:
-
-    10 Should be successful transactions:
-      - 5 Should be linked to Customer 1
-      - 3 Should be linked to Customer 2
-      - 1 Should be linked to Customer 3
-      - 1 Should be linked to Customer 4
-    
-    5 Should be transactions that failed:
-      - 3 Should be linked to Customer 3
-      - 2 Should be linked to Customer 4
-    
-    5 should be disputed:
-      - 3 should be linked to Customer 1
-      - 2 should be linked to customer 2
+5 Users with 1 successful charge each
+1 User with 2 disputed charges and 1 failed charge
+1 User with 3 failed charges
 
 
 ##### Create a Visual Representation of Different Charges:
 
 On the view that shows all charges (most likely the *GET /charges* route), create three lists with H1 headers. 
+When listing a customer if its a user then show first name and last name if company then show name and zip code
 
 - List 1 - 
   - Header: Failed Charges
-  - In this list set the background color of the rows to #FF0000 and list the Customers name, the charge amount and the date that the charge failed for each failed charge. 
+  - In this list set the background color of the rows to #FF0000 and list the customer, the charge amount and the date that the charge failed for each failed charge. 
+  - Link to show using unique_id
 
 - List 2 - 
   - Header: Disputed Charges
-  - In this list set the background color of the rows to ##FF5400 and list the Customers name, the charge amount and the date that the charge was disputed for each disputed charge. 
+  - In this list set the background color of the rows to ##FF5400 and list the customer,  the charge amount and the date that the charge was disputed for each disputed charge. 
+  - Link to show using unique_id
 
 - List 3 - 
   - Header: Successful Charges
-  - In this list simply display all the charges that were succesful. 
+  - In this list simply display all the charges that were successful. 
+  - Link to show using unique_id
+
+On the view that the details of 1 charge found by the unique_id 
+ -Show all customer info 
+ -Show all charge information
 
 ### Tests
 
 Create the following RSpec tests:
 
   1.  Verify that there are three lists on the screen. One for successful charges, one for failed charges and one for the disputed charges. 
-  2.  Verify that in the Successful charges list there are 10 line items. Verify that in the failed charges list there are 5 failed charges. Verify that in the disputed charges list there are failed charges. 
+  2.  Verify the number of each kind of charge. 
+  3.  Create unit tests surrounding your model logic.
 
 ## Once Complete
 1. Commit and Push your code to your new repository
