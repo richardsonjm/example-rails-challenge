@@ -28,7 +28,7 @@
     *Note: a successful charge is a paid charge that is not refunded
     *Note: a disputed charge is a paid charge that is refunded
     *Note: a failed charge is a charge that is not paid
-    *Note: the unique code is generated when the charge is created and should not be considered secure from guessing
+    *Note: the unique code is generated when the charge is created and should be considered secure from guessing
 
 - Also a charge has a customer that can be either a User or a Company (this may require adding attributes not listed to some of the models)
 - A user has attributes:
