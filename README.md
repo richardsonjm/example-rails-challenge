@@ -59,26 +59,26 @@
 ##### Create a Visual Representation of Different Charges:
 
 On the view that shows all charges (most likely the *GET /charges* route), create three lists with H1 headers. 
-When listing a customer if its a user then show first name and last name if company then show name and zip code
+When listing a customer if it's a user then show first name and last name or if it's a company then show name and zip code
 
 - List 1 - 
   - Header: Failed Charges
   - In this list set the background color of the rows to #FF0000 and list the customer, the charge amount and the date that the charge failed for each failed charge. 
-  - Link to show using unique_id
+  - Link to show using unique_code (do not include rails generated id in the link)
 
 - List 2 - 
   - Header: Disputed Charges
   - In this list set the background color of the rows to ##FF5400 and list the customer,  the charge amount and the date that the charge was disputed for each disputed charge. 
-  - Link to show using unique_id
+  - Link to show using unique_code (do not include rails generated id in the link)
 
 - List 3 - 
   - Header: Successful Charges
   - In this list simply display all the charges that were successful. 
-  - Link to show using unique_id
+  - Link to show using unique_code (do not include rails generated id in the link)
 
-On the view that the details of 1 charge found by the unique_id 
- -Show all customer info 
- -Show all charge information
+On the view that the details of 1 charge found by the unique_code
+ - Show all customer info 
+ - Show all charge information
 
 ### Tests
 
