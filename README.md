@@ -58,7 +58,9 @@
 
 ##### Create a Visual Representation of Different Charges:
 
-On the view that shows all charges (most likely the *GET /charges* route), create three lists with H1 headers. 
+1)  Create a page that allows creation of a new charge.  The user will pick from the list of companies and users already seeded in the system and then enter the amount and then submit with a "Charge Customer" button
+
+2)  On the view that shows all charges (most likely the *GET /charges* route), create three lists with H1 headers. 
 When listing a customer if it's a user then show first name and last name or if it's a company then show name and zip code
 
 - List 1 - 
@@ -76,7 +78,7 @@ When listing a customer if it's a user then show first name and last name or if 
   - In this list simply display all the charges that were successful. 
   - Link to show using unique_code (do not include rails generated id in the link)
 
-On the view that the details of 1 charge found by the unique_code
+3)  On the view that the details of 1 charge found by the unique_code
  - Show all customer info 
  - Show all charge information
 
@@ -86,7 +88,17 @@ Create the following RSpec tests:
 
   1.  Verify that there are three lists on the screen. One for successful charges, one for failed charges and one for the disputed charges. 
   2.  Verify the number of each kind of charge. 
-  3.  Create unit tests surrounding your model logic.
+  3.  Verify a new charge can be created.
+  4.  Create unit tests surrounding your model logic.
+
+### Extra Credit:
+
+Add one feature that can be discussed in the interview.  Some ideas:
+  - Use a no-SQL database
+  - Other index pages
+  - Edit pages for models
+  - Mailers after charges are created
+  - ...
 
 ## Once Complete
 1. Commit and Push your code to your new repository
