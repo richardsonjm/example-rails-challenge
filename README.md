@@ -94,7 +94,6 @@ Create the following RSpec tests:
 ### Extra Credit:
 
 Add one feature that can be discussed in the interview.  Some ideas:
-  - Use a no-SQL database
   - Other index pages
   - Edit pages for models
   - Mailers after charges are created
