@@ -78,7 +78,7 @@ When listing a customer if it's a user then show first name and last name or if 
   - In this list simply display all the charges that were successful. 
   - Link to show using unique_code (do not include rails generated id in the link)
 
-3)  On the view that the details of 1 charge found by the unique_code
+3)  On the view for showing the details of a charge (found by the unique_code and not id)
  - Show all customer info 
  - Show all charge information
 
