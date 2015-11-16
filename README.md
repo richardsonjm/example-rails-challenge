@@ -86,18 +86,18 @@ When listing a customer if it's a user then show first name and last name or if 
 
 Create the following RSpec tests:
 
-  1.  Verify that there are three lists on the screen. One for successful charges, one for failed charges and one for the disputed charges. 
+  1.  Verify that there are three lists on the screen. One for successful charges, one for failed charges and one for the disputed charges.
   2.  Verify the number of each kind of charge. 
   3.  Verify a new charge can be created.
   4.  Create unit tests surrounding your model logic.
 
-### Extra Credit:
+### One Additional Javascript Based Feature:
 
-Add one feature that can be discussed in the interview.  Some ideas:
-  - Other index pages
-  - Edit pages for models
-  - Mailers after charges are created
-  - ...
+Add one feature that can be discussed in the interview.  We are looking for something that will demonstrate good orgainization and design principles with JS & Rails together.  Some ideas:
+  - Ui/Ux Widgets
+  - Incorporate a js framework (Angular/Ember/Backbone)
+  - Ajaxify
+  - or something interesting you can come up with...
 
 ## Once Complete
 1. Commit and Push your code to your new repository
