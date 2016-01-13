@@ -24,6 +24,10 @@ module Buildingblok
     # Configure generators
     config.generators do |g|
       g.test_framework :rspec
+      g.helper false
+      g.helper_specs false
+      g.view_specs false
+      g.stylesheet_engine :sass
     end
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
