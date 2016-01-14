@@ -9,11 +9,13 @@ RSpec.describe Charge, type: :model do
     it { is_expected.to have_db_column(:chargeable_id) }
     it { is_expected.to have_db_column(:chargeable_type) }
     it { is_expected.to belong_to(:chargeable) }
+    it { is_expected.to validate_presence_of(:chargeable) }
   end
 
   describe "amount" do
     it { is_expected.to have_db_column(:amount) }
     it { is_expected.to respond_to :amount }
+    it { is_expected.to validate_presence_of(:amount) }
   end
 
   describe "unique_code" do
@@ -58,6 +60,20 @@ RSpec.describe Charge, type: :model do
         expect(@user_charge).not_to receive(:generate_unique_code)
         @user_charge.send(:set_unique_code)
       end
+    end
+  end
+
+  describe "#globale_chargeable=" do
+    it "assigns chargeable from globale id" do
+      expect{
+        @user_charge.global_chargeable = FactoryGirl.create(:user)
+      }.to change(@user_charge, :chargeable)
+    end
+  end
+
+  describe "#globale_chargeable" do
+    it "return chargeable globale id" do
+      expect(@user_charge.global_chargeable).to eq @user_charge.chargeable.to_global_id
     end
   end
 end

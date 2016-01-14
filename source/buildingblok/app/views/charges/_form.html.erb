@@ -1,0 +1,27 @@
+<%= form_for(@charge) do |f| %>
+  <% if @charge.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@charge.errors.count, "error") %> prohibited this charge from being saved:</h2>
+
+      <ul>
+      <% @charge.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= label_tag "Customer" %>
+    <%= f.grouped_collection_select :chargeable_id, [ User, Company ], :all, :model_name, :to_global_id, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :amount %>
+    <%= f.text_field :amount, :value => (number_with_precision(f.object.amount, :precision => 2) || 0) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Charge Customer' %>
+  </div>
+<% end %>

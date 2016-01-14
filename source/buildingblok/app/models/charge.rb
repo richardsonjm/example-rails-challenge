@@ -3,7 +3,17 @@ class Charge < ActiveRecord::Base
 
   after_initialize :set_unique_code
 
+  validates_presence_of :chargeable, :amount
+
   CODE_LENGTH = 32
+
+  def global_chargeable
+    self.chargeable.to_global_id if self.chargeable.present?
+  end
+
+  def global_chargeable=(chargeable)
+    self.chargeable = GlobalID::Locator.locate chargeable
+  end
 
   private
 
