@@ -1,6 +1,4 @@
 class ChargesController < ApplicationController
-  before_action :set_charge, only: [:show, :edit, :update, :destroy]
-
   def index
     @failed_charges = Charge.where(paid: false)
     @disputed_charges = Charge.where(paid: true, refunded: true)
@@ -8,6 +6,7 @@ class ChargesController < ApplicationController
   end
 
   def show
+    @charge = Charge.find_by(unique_code: params[:unique_code])
   end
 
   def new
@@ -19,7 +18,7 @@ class ChargesController < ApplicationController
 
     respond_to do |format|
       if @charge.save
-        format.html { redirect_to @charge, notice: 'charge was successfully created.' }
+        format.html { redirect_to charge_path(unique_code: @charge.unique_code), notice: 'charge was successfully created.' }
         format.json { render :show, status: :created, location: @charge }
       else
         format.html { render :new }
@@ -29,10 +28,6 @@ class ChargesController < ApplicationController
   end
 
   private
-    def set_charge
-      @charge = Charge.find(params[:id])
-    end
-
     def charge_params
       params[:charge].permit(:chargeable_id, :amount)
     end

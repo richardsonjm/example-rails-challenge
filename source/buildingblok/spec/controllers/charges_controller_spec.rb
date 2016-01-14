@@ -13,7 +13,7 @@ RSpec.describe ChargesController, type: :controller do
 
   describe "GET #show" do
     it "assigns the requested charge as @charge" do
-      get :show, {:id => @charge.to_param}
+      get :show, {:unique_code => @charge.unique_code}
       expect(assigns(:charge)).to eq(@charge)
     end
   end
@@ -53,7 +53,7 @@ RSpec.describe ChargesController, type: :controller do
 
       it "redirects to the created charge" do
         post :create, {:charge => @valid_attributes}
-        expect(response).to redirect_to(Charge.last)
+        expect(response).to redirect_to(charge_path(Charge.last.unique_code))
       end
     end
 
