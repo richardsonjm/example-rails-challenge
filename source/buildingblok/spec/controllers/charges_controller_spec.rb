@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe ChargesController, type: :controller do
 
-  before { @charge = FactoryGirl.create(:user_charge)}
+  before { @charge = FactoryGirl.create(:user_charge, :successful)}
 
   describe "GET #index" do
     it "assigns all charges as @charges" do
       get :index
-      expect(assigns(:charges)).to eq([@charge])
+      expect(assigns(:successful_charges)).to eq([@charge])
     end
   end
 

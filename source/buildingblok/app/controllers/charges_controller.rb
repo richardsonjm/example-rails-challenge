@@ -2,7 +2,9 @@ class ChargesController < ApplicationController
   before_action :set_charge, only: [:show, :edit, :update, :destroy]
 
   def index
-    @charges = Charge.all
+    @failed_charges = Charge.where(paid: false)
+    @disputed_charges = Charge.where(paid: true, refunded: true)
+    @successful_charges = Charge.where(paid: true, refunded: false)
   end
 
   def show
