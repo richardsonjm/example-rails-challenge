@@ -14,4 +14,10 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_db_column :last_name }
     it { is_expected.to respond_to :last_name }
   end
+
+  describe "charges" do
+    it { is_expected.to have_many :charges }
+    it { is_expected.to respond_to :charges }
+    it { is_expected.to respond_to :charge_ids }
+  end
 end

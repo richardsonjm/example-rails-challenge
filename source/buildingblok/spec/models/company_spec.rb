@@ -14,4 +14,10 @@ RSpec.describe Company, type: :model do
     it { is_expected.to have_db_column :zip_code }
     it { is_expected.to respond_to :zip_code }
   end
+
+  describe "charges" do
+    it { is_expected.to have_many :charges }
+    it { is_expected.to respond_to :charges }
+    it { is_expected.to respond_to :charge_ids }
+  end
 end
