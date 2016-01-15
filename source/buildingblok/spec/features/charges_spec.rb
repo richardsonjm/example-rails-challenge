@@ -10,14 +10,14 @@ RSpec.describe 'Charges index', type: :feature do
     it "lists failed" do
       within(find('.failed-charges')) {
         expect(page).to have_content 'Failed Charges'
-        expect(all('tr.failed-charge').count).to be 5
+        expect(all('tr.charge').count).to be 5
       }
     end
 
     it "lists disputed" do
       within(find('.disputed-charges')) {
         expect(page).to have_content 'Disputed Charges'
-        expect(all('tr.disputed-charge').count).to be 3
+        expect(all('tr.charge').count).to be 3
       }
     end
 
@@ -25,7 +25,7 @@ RSpec.describe 'Charges index', type: :feature do
     it "lists successuful" do
       within(find('.successful-charges')) {
         expect(page).to have_content 'Successful Charges'
-        expect(all('tr.successful-charge').count).to be 13
+        expect(all('tr.charge').count).to be 13
       }
     end
   end

@@ -1,0 +1,8 @@
+<tr class='charge'>
+  <td><%= charge.chargeable.name %></td>
+  <td><%= charge.amount %></td>
+  <% unless charge.paid? && !charge.refunded %>
+    <td><%= charge.updated_at %></td>
+  <% end %>
+  <td><%= link_to 'Show', charge_path(unique_code: charge.unique_code) %></td>
+</tr>

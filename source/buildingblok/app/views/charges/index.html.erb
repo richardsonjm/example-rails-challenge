@@ -13,14 +13,7 @@
     </thead>
 
     <tbody>
-      <% @failed_charges.each do |charge| %>
-        <tr class='failed-charge'>
-          <td><%= charge.chargeable.name %></td>
-          <td><%= charge.amount %></td>
-          <td><%= charge.updated_at %></td>
-          <td><%= link_to 'Show', charge_path(unique_code: charge.unique_code) %></td>
-        </tr>
-      <% end %>
+      <%= render @failed_charges %>
     </tbody>
   </table>
 </div>
@@ -38,14 +31,7 @@
     </thead>
 
     <tbody>
-      <% @disputed_charges.each do |charge| %>
-        <tr class='disputed-charge'>
-          <td><%= charge.chargeable.name %></td>
-          <td><%= charge.amount %></td>
-          <td><%= charge.updated_at %></td>
-          <td><%= link_to 'Show', charge_path(unique_code: charge.unique_code) %></td>
-        </tr>
-      <% end %>
+      <%= render @disputed_charges %>
     </tbody>
   </table>
 </div>
@@ -62,13 +48,7 @@
     </thead>
 
     <tbody>
-      <% @successful_charges.each do |charge| %>
-        <tr class='successful-charge'>
-          <td><%= charge.chargeable.name %></td>
-          <td><%= charge.amount %></td>
-          <td><%= link_to 'Show', charge_path(unique_code: charge.unique_code) %></td>
-        </tr>
-      <% end %>
+      <%= render @successful_charges %>
     </tbody>
   </table>
 </div>
