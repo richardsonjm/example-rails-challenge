@@ -20,16 +20,7 @@ class ChargesController < ApplicationController
       paid: false,
       refunded: false
     )
-
-    respond_to do |format|
-      if @charge.save
-        format.html { redirect_to charge_path(unique_code: @charge.unique_code), notice: 'charge was successfully created.' }
-        format.json { render :show, status: :created, location: @charge }
-      else
-        format.html { render :new }
-        format.json { render json: @charge.errors, status: :unprocessable_entity }
-      end
-    end
+    @charge.save
   end
 
   private

@@ -1,0 +1,7 @@
+new_charge.find('form').remove();
+<% if @charge.errors.any? %>
+  new_charge.append('<%= j render("form") %>');
+<% else %>
+  new_charge.find('a').show();
+  $('.failed-charges').find('tbody').append('<%= j render(@charge) %>')
+<% end %>

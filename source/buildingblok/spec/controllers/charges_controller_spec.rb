@@ -36,24 +36,19 @@ RSpec.describe ChargesController, type: :controller do
 
       it "creates a new charge" do
         expect {
-          post :create, {:charge => @valid_attributes}
+          post :create, charge: @valid_attributes, format: :js
         }.to change(Charge, :count).by(1)
       end
 
       it "assigns a newly created Charge" do
-        post :create, {:charge => @valid_attributes}
+        post :create, charge: @valid_attributes, format: :js
         expect(assigns(:charge)).to be_a(Charge)
         expect(assigns(:charge)).to be_persisted
       end
 
       it "assigns a newly created Charge to a User" do
-        post :create, {:charge => @valid_attributes}
+        post :create, charge: @valid_attributes, format: :js
         expect(Charge.last.chargeable).to be_a(User)
-      end
-
-      it "redirects to the created charge" do
-        post :create, {:charge => @valid_attributes}
-        expect(response).to redirect_to(charge_path(Charge.last.unique_code))
       end
     end
 
@@ -61,13 +56,13 @@ RSpec.describe ChargesController, type: :controller do
       before {@invalid_attributes = {chargeable_id: '', amount: '9.99'} }
 
       it "assigns a newly created but unsaved charge as @charge" do
-        post :create, {:charge => @invalid_attributes}
+        post :create, charge: @invalid_attributes, format: :js
         expect(assigns(:charge)).to be_a_new(Charge)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:charge => @invalid_attributes}
-        expect(response).to render_template("new")
+        post :create, charge: @invalid_attributes, format: :js
+        expect(response).to render_template("charges/create")
       end
     end
   end

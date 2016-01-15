@@ -29,15 +29,4 @@ RSpec.describe 'Charges index', type: :feature do
       }
     end
   end
-
-  describe 'new charge' do
-    it 'links to the new charge page' do
-      expect(page).to have_link 'New Charge'
-    end
-
-    it 'links to the new charge page' do
-      click_link 'New Charge'
-      expect(current_path).to eq new_charge_path
-    end
-  end
 end
