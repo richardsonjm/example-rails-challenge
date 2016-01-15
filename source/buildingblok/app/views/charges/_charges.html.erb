@@ -1,0 +1,19 @@
+<div class="<%=status %>-charges">
+  <h1><%=status.capitalize %> Charges</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>Amount</th>
+        <% unless status == 'successful' %>
+          <th>Date Failed</th>
+        <% end %>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= render charges %>
+    </tbody>
+  </table>
+</div>

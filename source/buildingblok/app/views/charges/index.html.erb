@@ -1,57 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<div class="failed-charges">
-  <h1>Failed Charges</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Customer</th>
-        <th>Amount</th>
-        <th>Date Failed</th>
-        <th></th>
-      </tr>
-    </thead>
+<%= render partial: 'charges', locals: {charges: @failed_charges, status: 'failed'} %>
 
-    <tbody>
-      <%= render @failed_charges %>
-    </tbody>
-  </table>
-</div>
+<%= render partial: 'charges', locals: {charges: @disputed_charges, status: 'disputed'} %>
 
-<div class="disputed-charges">
-  <h1>Disputed Charges</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Customer</th>
-        <th>Amount</th>
-        <th>Date Disputed</th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <%= render @disputed_charges %>
-    </tbody>
-  </table>
-</div>
-
-<div class="successful-charges">
-  <h1>Successful Charges</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Customer</th>
-        <th>Amount</th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <%= render @successful_charges %>
-    </tbody>
-  </table>
-</div>
+<%= render partial: 'charges', locals: {charges: @successful_charges, status: 'successful'} %>
 
 <br>
 <div class="new-charge">
