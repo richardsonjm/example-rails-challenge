@@ -1,3 +1,10 @@
 <p id="notice"><%= notice %></p>
+<h2><%= @charge.chargeable.name %> <small>[<%= @charge.chargeable_type %>]</small></h2>
+<ul>
+  <li>amount: <%= number_to_currency(@charge.amount) %></li>
+  <li>paid: <%= @charge.paid? ? 'Yes' : 'No' %></li>
+  <li>refunded: <%= @charge.refunded? ? 'Yes' : 'No'%></li>
+  <li>unique_code: <%= @charge.unique_code %></li>
+</ul>
 
 <%= link_to 'Back', charges_path %>
