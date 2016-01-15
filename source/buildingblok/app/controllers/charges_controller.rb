@@ -14,7 +14,12 @@ class ChargesController < ApplicationController
   end
 
   def create
-    @charge = Charge.new(amount: charge_params[:amount], global_chargeable: charge_params[:chargeable_id])
+    @charge = Charge.new(
+      amount: charge_params[:amount],
+      global_chargeable: charge_params[:chargeable_id],
+      paid: false,
+      refunded: false
+    )
 
     respond_to do |format|
       if @charge.save
